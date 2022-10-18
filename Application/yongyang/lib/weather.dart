@@ -45,83 +45,80 @@ class _WeatherState extends State<Weather> {
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(25), topRight: Radius.circular(25)),
       ),
-      child: Center(child: Text('$feels_like')),
-      // child: FutureBuilder(
-      //   future: getData(),
-      //   builder: (context, snapshot) {
-      //     print("$data");
-      //     if (snapshot.connectionState == ConnectionState.done) {
-      //       return Column(
-      //         children: [
-      //           Row(
-      //             children: [
-      //               Padding(
-      //                 padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
-      //                 child: Image.asset(
-      //                   'assets/sun.png',
-      //                   height: 130,
-      //                   width: 130,
-      //                 ),
-      //               ),
-      //               Padding(
-      //                 padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
-      //                 child: Column(
-      //                   mainAxisAlignment: MainAxisAlignment.center,
-      //                   children: [
-      //                     const Text(
-      //                       '',
-      //                       style: TextStyle(
-      //                           fontWeight: FontWeight.bold,
-      //                           fontSize: 45,
-      //                           color: Colors.black),
-      //                     ),
-      //                     Row(
-      //                       children: [
-      //                         Text(
-      //                           'ฝนอาจจะตก',
-      //                           style: GoogleFonts.mitr(
-      //                               fontSize: 15, color: Colors.black),
-      //                         ),
-      //                         const Text(
-      //                           ' 10%',
-      //                           style: TextStyle(fontWeight: FontWeight.bold),
-      //                         ),
-      //                       ],
-      //                     ),
-      //                     const SizedBox(
-      //                       height: 10,
-      //                     ),
-      //                     RichText(
-      //                       text: TextSpan(
-      //                         style: const TextStyle(color: Colors.black),
-      //                         children: <TextSpan>[
-      //                           TextSpan(
-      //                             text: 'ความชื้น ',
-      //                             style:
-      //                                 GoogleFonts.mitr(color: Colors.black),
-      //                           ),
-      //                           const TextSpan(
-      //                               text: '46% | ความดัน 1008 Pa',
-      //                               style: TextStyle(
-      //                                   fontWeight: FontWeight.bold)),
-      //                         ],
-      //                       ),
-      //                     ),
-      //                     const SizedBox(
-      //                       height: 30,
-      //                     ),
-      //                   ],
-      //                 ),
-      //               ),
-      //             ],
-      //           ),
-      //         ],
-      //       );
-      //     } else {
-      //       return Container();
-      //     }
-      //   },
-      // ),
+      child: FutureBuilder(
+        future: null,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return Column(
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                      child: Image.asset(
+                        'assets/sun.png',
+                        height: 130,
+                        width: 130,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(15, 30, 0, 0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            '',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 45,
+                                color: Colors.black),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'ฝนอาจจะตก',
+                                style: GoogleFonts.mitr(
+                                    fontSize: 15, color: Colors.black),
+                              ),
+                              const Text(
+                                ' 10%',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              style: const TextStyle(color: Colors.black),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: 'ความชื้น ',
+                                  style: GoogleFonts.mitr(color: Colors.black),
+                                ),
+                                const TextSpan(
+                                    text: '46% | ความดัน 1008 Pa',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            );
+          } else {
+            return Container();
+          }
+        },
+      ),
     );
   }
 }
