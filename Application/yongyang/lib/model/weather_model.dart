@@ -1,15 +1,22 @@
 class Weather {
-  double? temperature;
-  double? feelsLike;
-  int? humidity;
-  int? pressure;
+  final double temperature;
+  final double feelsLike;
+  final double humidity;
+  final int pressure;
 
-  Weather({this.temperature, this.feelsLike, this.humidity, this.pressure});
+  Weather({
+    this.temperature = 0,
+    this.feelsLike = 0,
+    this.humidity = 0,
+    this.pressure = 0,
+  });
 
-  Weather.fromJson(Map<String, dynamic> json) {
-    temperature = json["main"]["temp"];
-    feelsLike = json["main"]["feels_like"];
-    humidity = json["main"]["humidity"];
-    pressure = json["main"]["pressure"];
+  factory Weather.fromJson(Map<String, dynamic> json) {
+    return Weather(
+      temperature: json["main"]["temp"],
+      feelsLike: json["main"]["feels_like"],
+      humidity: json["main"]["humidity"],
+      pressure: json["main"]["pressure"],
+    );
   }
 }
