@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "606222950385",
-    "firebase_url": "https://rubbercare-2cfa6-default-rtdb.firebaseio.com",
-    "project_id": "rubbercare-2cfa6",
-    "storage_bucket": "rubbercare-2cfa6.appspot.com"
+    "project_number": "637217981970",
+    "project_id": "yongyang-b41ac",
+    "storage_bucket": "yongyang-b41ac.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:606222950385:android:5bfd2aa3e35952b694ee50",
+        "mobilesdk_app_id": "1:637217981970:android:16a7546939e5526467facb",
         "android_client_info": {
-          "package_name": "com.example.rubbercare"
+          "package_name": "com.example.yongyang"
         }
       },
       "oauth_client": [
         {
-          "client_id": "606222950385-gdisjujf9uok38ekgmdepbam238bn6rs.apps.googleusercontent.com",
+          "client_id": "637217981970-r9vkor793kpa891elpl13u9irvje8cbs.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD5ewFVEaBUcb0UeXK3MXZSJh7uYuS82Vo"
+          "current_key": "AIzaSyAhwYq7Ix5ISErNANa_Jc5nepvOl2KP0LM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "606222950385-gdisjujf9uok38ekgmdepbam238bn6rs.apps.googleusercontent.com",
+              "client_id": "637217981970-r9vkor793kpa891elpl13u9irvje8cbs.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

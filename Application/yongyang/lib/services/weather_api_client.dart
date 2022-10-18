@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:yongyang/model/weather_model.dart';
+import 'package:yongyang/models/weather_model.dart';
 
 class WeatherApiClient {
   Future<Weather> getCurrentWeather(String location) async {

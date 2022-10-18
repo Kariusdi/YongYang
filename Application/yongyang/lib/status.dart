@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yongyang/models/sensors_model.dart';
 
 class Status extends StatefulWidget {
   const Status({Key? key}) : super(key: key);
@@ -11,8 +12,8 @@ class Status extends StatefulWidget {
 }
 
 class _StatusState extends State<Status> {
-
-  DatabaseReference 
+  DatabaseReference sensors =
+      FirebaseDatabase.instance.reference().child("Sensors");
 
   @override
   Widget build(BuildContext context) {
@@ -25,23 +26,50 @@ class _StatusState extends State<Status> {
               border: Border.all(color: const Color(0xAAE3DCD2))),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                child: CircularPercentIndicator(
-                  radius: 140,
-                  progressColor: Color.fromARGB(170, 255, 94, 0),
-                  animation: true,
-                  percent: 0.55,
-                  circularStrokeCap: CircularStrokeCap.round,
-                  center: const Text(
-                    "24°C",
-                    style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
+              StreamBuilder(
+                  stream: sensors.onValue,
+                  builder: (context, AsyncSnapshot snapshot) {
+                    var sensorsVals =
+                        Sensors.fromJson(snapshot.data!.snapshot.value);
+                    var tempPercent = sensorsVals.temperature / 100;
+                    if (snapshot.hasData) {
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                        child: CircularPercentIndicator(
+                          radius: 140,
+                          progressColor: Color.fromARGB(170, 255, 94, 0),
+                          animation: true,
+                          percent: tempPercent,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          center: Text(
+                            "${sensorsVals.temperature}°C",
+                            style: const TextStyle(
+                                fontSize: 35,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      );
+                    } else {
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                        child: CircularPercentIndicator(
+                          radius: 140,
+                          progressColor: Color.fromARGB(255, 110, 163, 255),
+                          animation: true,
+                          percent: 0,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          center: const Text(
+                            "Error",
+                            style: TextStyle(
+                                fontSize: 35,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      );
+                    }
+                  }),
               Container(
                 width: 170,
                 height: 30,
@@ -67,23 +95,50 @@ class _StatusState extends State<Status> {
               border: Border.all(color: const Color(0xAAE3DCD2))),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                child: CircularPercentIndicator(
-                  radius: 140,
-                  progressColor: Color.fromARGB(255, 110, 163, 255),
-                  animation: true,
-                  percent: 0.75,
-                  circularStrokeCap: CircularStrokeCap.round,
-                  center: const Text(
-                    "70%",
-                    style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
+              StreamBuilder(
+                  stream: sensors.onValue,
+                  builder: (context, AsyncSnapshot snapshot) {
+                    var sensorsVals =
+                        Sensors.fromJson(snapshot.data!.snapshot.value);
+                    var humiPercent = sensorsVals.humidity / 100;
+                    if (snapshot.hasData) {
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                        child: CircularPercentIndicator(
+                          radius: 140,
+                          progressColor: Color.fromARGB(255, 110, 163, 255),
+                          animation: true,
+                          percent: 0.75,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          center: Text(
+                            "${sensorsVals.humidity}%",
+                            style: const TextStyle(
+                                fontSize: 35,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      );
+                    } else {
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                        child: CircularPercentIndicator(
+                          radius: 140,
+                          progressColor: Color.fromARGB(255, 110, 163, 255),
+                          animation: true,
+                          percent: 0,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          center: const Text(
+                            "Error",
+                            style: TextStyle(
+                                fontSize: 35,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ),
+                      );
+                    }
+                  }),
               Container(
                 width: 170,
                 height: 30,
