@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +11,9 @@ class Status extends StatefulWidget {
 }
 
 class _StatusState extends State<Status> {
+
+  DatabaseReference 
+
   @override
   Widget build(BuildContext context) {
     return Row(
