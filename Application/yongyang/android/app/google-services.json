@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "725281462513",
+    "firebase_url": "https://yongyang-project-default-rtdb.firebaseio.com",
+    "project_id": "yongyang-project",
+    "storage_bucket": "yongyang-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725281462513:android:4edb569425ecaf45a77150",
+        "android_client_info": {
+          "package_name": "com.example.yongyang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725281462513-76nbdefadomakl5aocijk5g20r21ei4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk6MUEUi6Fny3JEmP5peKKgnJ3NE1fdQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725281462513-76nbdefadomakl5aocijk5g20r21ei4s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
