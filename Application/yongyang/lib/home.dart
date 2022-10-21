@@ -55,7 +55,7 @@ class _HomepageState extends State<Homepage> {
                   SizedBox(
                     width: 25,
                   ),
-                  Text("แผงควบคุมอุปกรณ์ภายใน",
+                  Text("สถานะอุปกรณ์ภายใน",
                       style:
                           GoogleFonts.mitr(fontSize: 15, color: Colors.black)),
                 ],

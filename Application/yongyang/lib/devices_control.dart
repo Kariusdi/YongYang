@@ -1,6 +1,9 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:yongyang/models/deviceStates_model.dart';
 
 class Devicecontroller extends StatefulWidget {
   const Devicecontroller({Key? key}) : super(key: key);
@@ -10,8 +13,373 @@ class Devicecontroller extends StatefulWidget {
 }
 
 class _DevicecontrollerState extends State<Devicecontroller> {
+  DatabaseReference rf = FirebaseDatabase.instance.reference().child('States');
+
   @override
   Widget build(BuildContext context) {
-    return Text('data');
+    return StreamBuilder<Object>(
+        stream: rf.onValue,
+        builder: (context, AsyncSnapshot snapshot) {
+          var states = States.fromJson(snapshot.data.snapshot.value);
+          if (snapshot.hasData) {
+            return Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    states.fan1 == 1
+                        ? Container(
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 137, 255, 137),
+                                borderRadius: const BorderRadius.all(
+                                    const Radius.circular(20)),
+                                border:
+                                    Border.all(color: const Color(0xAAE3DCD2))),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'พัดลม 1',
+                                        style: GoogleFonts.mitr(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      RichText(
+                                        text: TextSpan(
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                                text: 'สถานะ : ',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                            TextSpan(
+                                                text: 'เปิด',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Icon(
+                                    Icons.air_rounded,
+                                    size: 50,
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        : Container(
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 255, 128, 128),
+                                borderRadius: const BorderRadius.all(
+                                    const Radius.circular(20)),
+                                border:
+                                    Border.all(color: const Color(0xAAE3DCD2))),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'พัดลม 1',
+                                        style: GoogleFonts.mitr(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      RichText(
+                                        text: TextSpan(
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                                text: 'สถานะ : ',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                            TextSpan(
+                                                text: 'ปิด',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Icon(
+                                    Icons.air_rounded,
+                                    size: 50,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    states.fan2 == 1
+                        ? Container(
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 137, 255, 137),
+                                borderRadius: const BorderRadius.all(
+                                    const Radius.circular(20)),
+                                border:
+                                    Border.all(color: const Color(0xAAE3DCD2))),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'พัดลม 2',
+                                        style: GoogleFonts.mitr(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      RichText(
+                                        text: TextSpan(
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                                text: 'สถานะ : ',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                            TextSpan(
+                                                text: 'เปิด',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Icon(
+                                    Icons.air_rounded,
+                                    size: 50,
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        : Container(
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 255, 128, 128),
+                                borderRadius: const BorderRadius.all(
+                                    const Radius.circular(20)),
+                                border:
+                                    Border.all(color: const Color(0xAAE3DCD2))),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'พัดลม 1',
+                                        style: GoogleFonts.mitr(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      RichText(
+                                        text: TextSpan(
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                                text: 'สถานะ : ',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                            TextSpan(
+                                                text: 'ปิด',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Icon(
+                                    Icons.air_rounded,
+                                    size: 50,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    states.pump == 1
+                        ? Container(
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 137, 255, 137),
+                                borderRadius: const BorderRadius.all(
+                                    const Radius.circular(20)),
+                                border:
+                                    Border.all(color: const Color(0xAAE3DCD2))),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'ปั๊มน้ำ',
+                                        style: GoogleFonts.mitr(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      RichText(
+                                        text: TextSpan(
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                                text: 'สถานะ : ',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                            TextSpan(
+                                                text: 'เปิด',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Icon(
+                                    Icons.heat_pump_rounded,
+                                    size: 50,
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        : Container(
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 255, 128, 128),
+                                borderRadius: const BorderRadius.all(
+                                    const Radius.circular(20)),
+                                border:
+                                    Border.all(color: const Color(0xAAE3DCD2))),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'ปั๊มน้ำ',
+                                        style: GoogleFonts.mitr(
+                                            fontSize: 15, color: Colors.black),
+                                      ),
+                                      RichText(
+                                        text: TextSpan(
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                                text: 'สถานะ : ',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                            TextSpan(
+                                                text: 'ปิด',
+                                                style: GoogleFonts.mitr(
+                                                    fontSize: 15,
+                                                    color: Colors.black)),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Icon(
+                                    Icons.heat_pump_rounded,
+                                    size: 50,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 255, 232, 151),
+                          borderRadius:
+                              const BorderRadius.all(const Radius.circular(20)),
+                          border: Border.all(color: const Color(0xAAE3DCD2))),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  'พลังงาน',
+                                  style: GoogleFonts.mitr(
+                                      fontSize: 15, color: Colors.black),
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                          text: 'สถานะ : ',
+                                          style: GoogleFonts.mitr(
+                                              fontSize: 15,
+                                              color: Colors.black)),
+                                      TextSpan(
+                                          text: '${states.battery}%',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold)),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Icon(
+                              Icons.bolt_rounded,
+                              size: 50,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            );
+          } else {
+            return Text('Error');
+          }
+        });
   }
 }

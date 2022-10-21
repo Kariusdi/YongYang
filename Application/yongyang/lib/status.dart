@@ -28,82 +28,70 @@ class _StatusState extends State<Status> {
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius:
-                          const BorderRadius.all(const Radius.circular(20)),
-                      border: Border.all(color: const Color(0xAAE3DCD2))),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                        child: CircularPercentIndicator(
-                          radius: 140,
-                          progressColor: Color.fromARGB(170, 255, 204, 0),
-                          animation: true,
-                          percent: tempPercent,
-                          circularStrokeCap: CircularStrokeCap.round,
-                          center: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "${sensors.temperature}°C",
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
-                              ),
-                              Text(
-                                'อุณหภูมิ',
-                                style: GoogleFonts.mitr(
-                                    fontSize: 15, color: Colors.black),
-                              ),
-                            ],
-                          ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                      child: CircularPercentIndicator(
+                        radius: 140,
+                        progressColor: Color.fromARGB(170, 255, 204, 0),
+                        animation: true,
+                        percent: tempPercent,
+                        circularStrokeCap: CircularStrokeCap.round,
+                        center: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "${sensors.temperature}°C",
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
+                            ),
+                            Text(
+                              'อุณหภูมิ',
+                              style: GoogleFonts.mitr(
+                                  fontSize: 15, color: Colors.black),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   width: 15,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius:
-                          const BorderRadius.all(const Radius.circular(20)),
-                      border: Border.all(color: const Color(0xAAE3DCD2))),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                        child: CircularPercentIndicator(
-                          radius: 140,
-                          progressColor: Color.fromARGB(170, 110, 38, 255),
-                          animation: true,
-                          percent: humiPercent,
-                          circularStrokeCap: CircularStrokeCap.round,
-                          center: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "${sensors.humidity}%",
-                                style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black),
-                              ),
-                              Text(
-                                'ความชื้น',
-                                style: GoogleFonts.mitr(
-                                    fontSize: 15, color: Colors.black),
-                              ),
-                            ],
-                          ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                      child: CircularPercentIndicator(
+                        radius: 140,
+                        progressColor: Color.fromARGB(170, 110, 38, 255),
+                        animation: true,
+                        percent: humiPercent,
+                        circularStrokeCap: CircularStrokeCap.round,
+                        center: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "${sensors.humidity}%",
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
+                            ),
+                            Text(
+                              'ความชื้น',
+                              style: GoogleFonts.mitr(
+                                  fontSize: 15, color: Colors.black),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             );
