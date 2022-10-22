@@ -21,7 +21,7 @@ class _StatusState extends State<Status> {
     return StreamBuilder<Object>(
         stream: rf.onValue,
         builder: (context, AsyncSnapshot snapshot) {
-          var sensors = Sensors.fromJson(snapshot.data.snapshot.value);
+          var sensors = Sensors.fromJson(snapshot.data!.snapshot.value);
           var tempPercent = sensors.temperature / 100;
           var humiPercent = sensors.humidity / 100;
           if (snapshot.hasData) {

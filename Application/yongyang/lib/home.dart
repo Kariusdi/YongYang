@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:yongyang/devices_control.dart';
+import 'package:yongyang/devices_states.dart';
+import 'package:yongyang/rubberPrice.dart';
 import 'package:yongyang/status.dart';
+import 'package:yongyang/weather.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -36,9 +36,9 @@ class _HomepageState extends State<Homepage> {
               Row(
                 children: [
                   SizedBox(
-                    width: 25,
+                    width: 35,
                   ),
-                  Text("ค่าเซ็นเซอร์ภายใน",
+                  Text("ค่าสถานะภายใน",
                       style:
                           GoogleFonts.mitr(fontSize: 15, color: Colors.black)),
                 ],
@@ -50,20 +50,30 @@ class _HomepageState extends State<Homepage> {
               SizedBox(
                 height: 20,
               ),
+              Devicecontroller(),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Divider(
+                  thickness: 2.0,
+                  color: Colors.grey,
+                ),
+              ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: 25,
-                  ),
-                  Text("สถานะอุปกรณ์ภายใน",
+                  Text("ราคายางวันนี้",
                       style:
                           GoogleFonts.mitr(fontSize: 15, color: Colors.black)),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  RubberPrice(),
                 ],
               ),
               SizedBox(
                 height: 20,
               ),
-              Devicecontroller(),
+              Weather()
             ],
           ),
         ],
