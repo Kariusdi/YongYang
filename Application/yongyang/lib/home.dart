@@ -4,9 +4,12 @@ import 'package:yongyang/devices_states.dart';
 import 'package:yongyang/rubberPrice.dart';
 import 'package:yongyang/status.dart';
 import 'package:yongyang/weather.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({Key? key}) : super(key: key);
+  final User user;
+  const Homepage({super.key, required this.user});
+  //const Homepage({Key? key}) : super(key: key);
 
   @override
   State<Homepage> createState() => _HomepageState();
@@ -21,7 +24,7 @@ class _HomepageState extends State<Homepage> {
         leading: IconButton(
           icon: Icon(Icons.accessibility_new_rounded),
           color: Colors.black,
-          onPressed: () => print('press'),
+          onPressed: () => print('${widget.user.displayName}'),
         ),
         centerTitle: true,
         title: Text("โยงยาง",
