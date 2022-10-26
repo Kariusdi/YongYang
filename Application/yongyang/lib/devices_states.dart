@@ -17,7 +17,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<Object>(
+    return StreamBuilder(
         stream: rf.onValue,
         builder: (context, AsyncSnapshot snapshot) {
           var states = States.fromJson(snapshot.data.snapshot.value);

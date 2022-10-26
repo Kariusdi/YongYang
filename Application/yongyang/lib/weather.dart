@@ -15,9 +15,8 @@ class _WeatherState extends State<Weather> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Color.fromARGB(255, 221, 221, 221),
-          borderRadius: const BorderRadius.only(
-              topRight: Radius.circular(50), topLeft: Radius.circular(50))),
+          color: Color.fromARGB(255, 235, 235, 235),
+          borderRadius: const BorderRadius.all(Radius.circular(30))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

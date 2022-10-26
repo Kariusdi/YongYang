@@ -19,23 +19,60 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: Icon(Icons.accessibility_new_rounded),
-          color: Colors.black,
-          onPressed: () => print('${widget.user.displayName}'),
-        ),
-        centerTitle: true,
-        title: Text("โยงยาง",
-            style: GoogleFonts.mitr(fontSize: 20, color: Colors.black)),
-        elevation: 0,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   leading: IconButton(
+      //     icon: Icon(Icons.accessibility_new_rounded),
+      //     color: Colors.black,
+      //     onPressed: () => print('${widget.user.displayName}'),
+      //   ),
+      //   centerTitle: true,
+      //   title: Text("โยงยาง",
+      //       style: GoogleFonts.mitr(fontSize: 20, color: Colors.black)),
+      //   elevation: 0,
+      // ),
       body: SafeArea(
           child: ListView(
         children: [
           Column(
             children: [
+              SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text('สวัสดี, ${widget.user.displayName}',
+                              style: GoogleFonts.mitr(
+                                  fontSize: 20, color: Colors.black)),
+                          SizedBox(
+                            width: 60,
+                          )
+                        ],
+                      ),
+                      Text('Welcome to YongYang',
+                          style: GoogleFonts.mitr(
+                              fontSize: 15, color: Colors.grey)),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 100,
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.account_circle_rounded),
+                    iconSize: 50,
+                    color: Colors.black,
+                    onPressed: () => print('${widget.user.displayName}'),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 25,
+              ),
               Row(
                 children: [
                   SizedBox(

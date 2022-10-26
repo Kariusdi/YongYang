@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: LoadingPage(),
     );
   }
@@ -30,6 +31,7 @@ class _LoadingPageState extends State<LoadingPage> {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
     return firebaseApp;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,4 +49,3 @@ class _LoadingPageState extends State<LoadingPage> {
     );
   }
 }
-
