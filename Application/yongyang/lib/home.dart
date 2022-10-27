@@ -9,7 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class Homepage extends StatefulWidget {
   final User user;
   const Homepage({super.key, required this.user});
-  //const Homepage({Key? key}) : super(key: key);
+  // const Homepage({Key? key}) : super(key: key);
 
   @override
   State<Homepage> createState() => _HomepageState();
@@ -19,24 +19,12 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   leading: IconButton(
-      //     icon: Icon(Icons.accessibility_new_rounded),
-      //     color: Colors.black,
-      //     onPressed: () => print('${widget.user.displayName}'),
-      //   ),
-      //   centerTitle: true,
-      //   title: Text("โยงยาง",
-      //       style: GoogleFonts.mitr(fontSize: 20, color: Colors.black)),
-      //   elevation: 0,
-      // ),
       body: SafeArea(
           child: ListView(
         children: [
           Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Row(
@@ -49,9 +37,9 @@ class _HomepageState extends State<Homepage> {
                           Text('สวัสดี, ${widget.user.displayName}',
                               style: GoogleFonts.mitr(
                                   fontSize: 20, color: Colors.black)),
-                          SizedBox(
+                          const SizedBox(
                             width: 60,
-                          )
+                          ),
                         ],
                       ),
                       Text('Welcome to YongYang',
@@ -59,7 +47,7 @@ class _HomepageState extends State<Homepage> {
                               fontSize: 15, color: Colors.grey)),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 100,
                   ),
                   IconButton(
@@ -70,12 +58,12 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 35,
                   ),
                   Text("ค่าสถานะภายใน",
@@ -83,15 +71,15 @@ class _HomepageState extends State<Homepage> {
                           GoogleFonts.mitr(fontSize: 15, color: Colors.black)),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Status(),
-              SizedBox(
+              const Status(),
+              const SizedBox(
                 height: 20,
               ),
-              Devicecontroller(),
-              Padding(
+              const Devicecontroller(),
+              const Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Divider(
                   thickness: 2.0,
@@ -104,16 +92,16 @@ class _HomepageState extends State<Homepage> {
                   Text("ราคายางวันนี้",
                       style:
                           GoogleFonts.mitr(fontSize: 15, color: Colors.black)),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
-                  RubberPrice(),
+                  const RubberPrice(),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Weather()
+              const Weather(),
             ],
           ),
         ],
