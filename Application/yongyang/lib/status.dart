@@ -45,8 +45,12 @@ class _StatusState extends State<Status> {
             DateTime now = DateTime.now();
             String dateAndtime =
                 '${now.year}-${now.month}-${now.day}\t\t\t${now.hour}:${now.minute}:${now.second}';
-            submitData(dateAndtime, sensors.temperature.toString(),
-                sensors.humidity.toString());
+
+            if (sensors.temperature != 0 && sensors.humidity != 0) {
+              submitData(dateAndtime, sensors.temperature.toString(),
+                  sensors.humidity.toString());
+            }
+
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -63,13 +67,21 @@ class _StatusState extends State<Status> {
                         center: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              "${sensors.temperature}°C",
-                              style: TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black),
-                            ),
+                            sensors.temperature != 0
+                                ? Text(
+                                    "${sensors.temperature}°C",
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  )
+                                : Text(
+                                    "Error",
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  ),
                             Text(
                               'อุณหภูมิ',
                               style: GoogleFonts.mitr(
@@ -97,13 +109,21 @@ class _StatusState extends State<Status> {
                         center: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              "${sensors.humidity}%",
-                              style: TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black),
-                            ),
+                            sensors.humidity != 0
+                                ? Text(
+                                    "${sensors.humidity}%",
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  )
+                                : Text(
+                                    "Error",
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  ),
                             Text(
                               'ความชื้น',
                               style: GoogleFonts.mitr(
