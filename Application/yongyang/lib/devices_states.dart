@@ -230,7 +230,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    states.pump == 1
+                    states.heater == 1
                         ? Container(
                             decoration: BoxDecoration(
                                 color: Color(0xAA013328),
@@ -327,7 +327,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                             ),
                           ),
                     SizedBox(
-                      width: 150,
+                      width: 155,
                     ),
                   ],
                 ),
