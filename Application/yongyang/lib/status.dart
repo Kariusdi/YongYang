@@ -18,20 +18,20 @@ class Status extends StatefulWidget {
 class _StatusState extends State<Status> {
   DatabaseReference rf = FirebaseDatabase.instance.ref().child('Sensors');
 
-  void submitData(String _time, String _temp, String _humi) {
-    FeedbackForm feedbackForm = FeedbackForm(_time, _temp, _humi);
+  // void submitData(String _time, String _temp, String _humi) {
+  //   FeedbackForm feedbackForm = FeedbackForm(_time, _temp, _humi);
 
-    FormController formController = FormController((String response) {
-      // print(response);
-      if (response == FormController.STATUS_SUCCESS) {
-        print('Success');
-      } else {
-        print('Failed');
-      }
-    });
-    print('Submitted');
-    formController.submitForm(feedbackForm);
-  }
+  //   FormController formController = FormController((String response) {
+  //     // print(response);
+  //     if (response == FormController.STATUS_SUCCESS) {
+  //       print('Success');
+  //     } else {
+  //       print('Failed');
+  //     }
+  //   });
+  //   print('Submitted');
+  //   formController.submitForm(feedbackForm);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +42,14 @@ class _StatusState extends State<Status> {
           var tempPercent = sensors.temperature / 100;
           var humiPercent = sensors.humidity / 100;
           if (snapshot.hasData) {
-            DateTime now = DateTime.now();
-            String dateAndtime =
-                '${now.year}-${now.month}-${now.day}\t\t\t${now.hour}:${now.minute}:${now.second}';
+            // DateTime now = DateTime.now();
+            // String dateAndtime =
+            //     '${now.year}-${now.month}-${now.day}\t\t\t${now.hour}:${now.minute}:${now.second}';
 
-            if (sensors.temperature != 0 && sensors.humidity != 0) {
-              submitData(dateAndtime, sensors.temperature.toString(),
-                  sensors.humidity.toString());
-            }
+            // if (sensors.temperature != 0 && sensors.humidity != 0) {
+            //   submitData(dateAndtime, sensors.temperature.toString(),
+            //       sensors.humidity.toString());
+            // }
 
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,

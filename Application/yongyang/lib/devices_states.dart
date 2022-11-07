@@ -245,7 +245,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                   Column(
                                     children: [
                                       Text(
-                                        'ปั๊มน้ำ',
+                                        'ตัวทำความร้อน',
                                         style: GoogleFonts.mitr(
                                             fontSize: 15, color: Colors.white),
                                       ),
@@ -293,7 +293,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                   Column(
                                     children: [
                                       Text(
-                                        'ปั๊มน้ำ',
+                                        'ตัวทำความร้อน',
                                         style: GoogleFonts.mitr(
                                             fontSize: 15, color: Colors.black),
                                       ),
@@ -327,54 +327,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                             ),
                           ),
                     SizedBox(
-                      width: 10,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 255, 232, 151),
-                          borderRadius:
-                              const BorderRadius.all(const Radius.circular(20)),
-                          border: Border.all(color: const Color(0xAAE3DCD2))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Row(
-                          children: [
-                            Column(
-                              children: [
-                                Text(
-                                  'พลังงาน',
-                                  style: GoogleFonts.mitr(
-                                      fontSize: 15, color: Colors.black),
-                                ),
-                                RichText(
-                                  text: TextSpan(
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                          text: 'สถานะ : ',
-                                          style: GoogleFonts.mitr(
-                                              fontSize: 15,
-                                              color: Colors.black)),
-                                      TextSpan(
-                                          text: '${states.battery}%',
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold)),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Icon(
-                              Icons.bolt_rounded,
-                              size: 40,
-                            )
-                          ],
-                        ),
-                      ),
+                      width: 150,
                     ),
                   ],
                 ),

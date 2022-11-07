@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yongyang/dataTable.dart';
 import 'package:yongyang/devices_states.dart';
 import 'package:yongyang/rubberPrice.dart';
 import 'package:yongyang/status.dart';
@@ -101,7 +102,7 @@ class _HomepageState extends State<Homepage> {
               const SizedBox(
                 height: 20,
               ),
-              const Weather(),
+              const Data(),
             ],
           ),
         ],
