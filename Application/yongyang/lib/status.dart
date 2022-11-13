@@ -37,11 +37,17 @@ class _StatusState extends State<Status> {
   Widget build(BuildContext context) {
     return StreamBuilder<dynamic>(
         stream: rf.onValue,
-        builder: (context, AsyncSnapshot snapshot) {
+        builder: (context, snapshot) {
           var sensors = Sensors.fromJson(snapshot.data!.snapshot.value);
           var tempPercent = sensors.temperature / 100;
           var humiPercent = sensors.humidity / 100;
-          if (snapshot.hasData) {
+          if (snapshot.connectionState == ConnectionState.waiting ||
+              !snapshot.hasData) {
+            return const CircularProgressIndicator(
+              color: Colors.black,
+            );
+          }
+          if (snapshot.hasData && snapshot.data != null) {
             // DateTime now = DateTime.now();
             // String dateAndtime =
             //     '${now.year}-${now.month}-${now.day}\t\t\t${now.hour}:${now.minute}:${now.second}';

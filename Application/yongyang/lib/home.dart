@@ -19,6 +19,9 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
+    var now = DateTime.now();
+    String Date = '${now.year}-${now.month}-${now.day}';
+    String Time = '${now.hour}:${now.minute}:${now.second}';
     return Scaffold(
       body: SafeArea(
           child: ListView(
@@ -63,13 +66,28 @@ class _HomepageState extends State<Homepage> {
                 height: 25,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const SizedBox(
-                    width: 35,
-                  ),
                   Text("ค่าสถานะภายใน",
                       style:
-                          GoogleFonts.mitr(fontSize: 15, color: Colors.black)),
+                          GoogleFonts.mitr(color: Colors.black, fontSize: 15)),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      style: const TextStyle(color: Colors.grey),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'อัพเดทล่าสุด  ',
+                            style: GoogleFonts.mitr(fontSize: 12)),
+                        // TextSpan(
+                        //     text: '${Date}', style: TextStyle(fontSize: 12)),
+                        TextSpan(
+                            text: '${Time}', style: TextStyle(fontSize: 12)),
+                      ],
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(
@@ -100,9 +118,12 @@ class _HomepageState extends State<Homepage> {
                 ],
               ),
               const SizedBox(
-                height: 20,
+                height: 30,
               ),
               const Data(),
+              const SizedBox(
+                height: 10,
+              ),
             ],
           ),
         ],

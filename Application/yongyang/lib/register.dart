@@ -58,11 +58,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                           decoration: BoxDecoration(
-                              color: Color(0xff7c9982),
-                              borderRadius: BorderRadius.circular(20),
-                              ),
+                            color: Color(0xff7c9982),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                           child: ListTile(
                             title: TextFormField(
+                                cursorColor: Colors.black,
                                 controller: _usernameController,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
@@ -94,11 +95,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                           decoration: BoxDecoration(
-                              color: Color(0xff7c9982),
-                              borderRadius: BorderRadius.circular(20),
-                              ),
+                            color: Color(0xff7c9982),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                           child: ListTile(
                             title: TextFormField(
+                                cursorColor: Colors.black,
                                 controller: _emailController,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
@@ -130,11 +132,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                           decoration: BoxDecoration(
-                              color: Color(0xff7c9982),
-                              borderRadius: BorderRadius.circular(20),
-                              ),
+                            color: Color(0xff7c9982),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                           child: ListTile(
                             title: TextFormField(
+                                cursorColor: Colors.black,
                                 controller: _passwordController,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,

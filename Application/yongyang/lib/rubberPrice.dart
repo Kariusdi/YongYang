@@ -23,12 +23,13 @@ class _RubberPriceState extends State<RubberPrice> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        String url = 'https://www.raot.co.th/rubber2012/menu5.php';
-        _launchURL(url);
+        launch('https://www.raot.co.th/rubber2012/menu5.php');
+        // String url = 'https://www.raot.co.th/rubber2012/menu5.php';
+        // _launchURL(url);
       },
       child: Container(
         height: 40,
-        width: 270,
+        width: 240,
         decoration: BoxDecoration(
             color: Colors.black,
             borderRadius: BorderRadius.all(Radius.circular(20))),

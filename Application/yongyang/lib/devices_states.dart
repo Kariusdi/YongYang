@@ -17,11 +17,17 @@ class _DevicecontrollerState extends State<Devicecontroller> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
+    return StreamBuilder<dynamic>(
         stream: rf.onValue,
-        builder: (context, AsyncSnapshot snapshot) {
+        builder: (context, snapshot) {
           var states = States.fromJson(snapshot.data.snapshot.value);
-          if (snapshot.hasData) {
+
+          if (snapshot.connectionState == ConnectionState.waiting ||
+              snapshot.hasError) {
+            return const CircularProgressIndicator(
+              color: Colors.black,
+            );
+          } else if (snapshot.hasData && snapshot.data != null) {
             return Column(
               children: [
                 Row(
@@ -30,7 +36,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                     states.fan1 == 1
                         ? Container(
                             decoration: BoxDecoration(
-                                color: Color(0xAA013328),
+                                color: const Color(0xAA013328),
                                 borderRadius: const BorderRadius.all(
                                     const Radius.circular(20)),
                                 border:
@@ -42,7 +48,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                   Column(
                                     children: [
                                       Text(
-                                        'พัดลม 1',
+                                        'พัดลมหน้า',
                                         style: GoogleFonts.mitr(
                                             fontSize: 15, color: Colors.white),
                                       ),
@@ -64,10 +70,10 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.air_rounded,
                                     size: 50,
                                     color: Colors.white,
@@ -78,7 +84,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                           )
                         : Container(
                             decoration: BoxDecoration(
-                                color: Color(0xAACC8B65),
+                                color: const Color(0xAACC8B65),
                                 borderRadius: const BorderRadius.all(
                                     const Radius.circular(20)),
                                 border:
@@ -90,7 +96,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                   Column(
                                     children: [
                                       Text(
-                                        'พัดลม 1',
+                                        'พัดลมหน้า',
                                         style: GoogleFonts.mitr(
                                             fontSize: 15, color: Colors.black),
                                       ),
@@ -112,10 +118,10 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.air_rounded,
                                     size: 50,
                                   )
@@ -123,13 +129,13 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                               ),
                             ),
                           ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     states.fan2 == 1
                         ? Container(
                             decoration: BoxDecoration(
-                                color: Color(0xAA013328),
+                                color: const Color(0xAA013328),
                                 borderRadius: const BorderRadius.all(
                                     const Radius.circular(20)),
                                 border:
@@ -141,7 +147,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                   Column(
                                     children: [
                                       Text(
-                                        'พัดลม 2',
+                                        'พัดลมหลัง',
                                         style: GoogleFonts.mitr(
                                             fontSize: 15, color: Colors.white),
                                       ),
@@ -163,10 +169,10 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.air_rounded,
                                     size: 50,
                                     color: Colors.white,
@@ -177,7 +183,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                           )
                         : Container(
                             decoration: BoxDecoration(
-                                color: Color(0xAACC8B65),
+                                color: const Color(0xAACC8B65),
                                 borderRadius: const BorderRadius.all(
                                     const Radius.circular(20)),
                                 border:
@@ -189,7 +195,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                   Column(
                                     children: [
                                       Text(
-                                        'พัดลม 2',
+                                        'พัดลมหลัง',
                                         style: GoogleFonts.mitr(
                                             fontSize: 15, color: Colors.black),
                                       ),
@@ -211,10 +217,10 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.air_rounded,
                                     size: 50,
                                   )
@@ -224,7 +230,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                           ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -233,7 +239,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                     states.heater == 1
                         ? Container(
                             decoration: BoxDecoration(
-                                color: Color(0xAA013328),
+                                color: const Color(0xAA013328),
                                 borderRadius: const BorderRadius.all(
                                     const Radius.circular(20)),
                                 border:
@@ -267,10 +273,10 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.heat_pump_rounded,
                                     size: 50,
                                     color: Colors.white,
@@ -281,7 +287,7 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                           )
                         : Container(
                             decoration: BoxDecoration(
-                                color: Color(0xAACC8B65),
+                                color: const Color(0xAACC8B65),
                                 borderRadius: const BorderRadius.all(
                                     const Radius.circular(20)),
                                 border:
@@ -315,10 +321,10 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.heat_pump_rounded,
                                     size: 50,
                                   )
@@ -326,15 +332,23 @@ class _DevicecontrollerState extends State<Devicecontroller> {
                               ),
                             ),
                           ),
-                    SizedBox(
-                      width: 155,
+                    const SizedBox(
+                      width: 40,
+                    ),
+                    const Icon(
+                      Icons.sunny,
+                      size: 80,
+                      color: Color.fromARGB(170, 219, 175, 0),
+                    ),
+                    const SizedBox(
+                      width: 40,
                     ),
                   ],
                 ),
               ],
             );
           } else {
-            return Text('Error');
+            return const Text('Error');
           }
         });
   }

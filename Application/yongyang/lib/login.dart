@@ -32,8 +32,12 @@ class _LoginPageState extends State<LoginPage> {
     var user = _auth.currentUser;
     if (user != null) {
       print(user.displayName);
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => Homepage(user: user,)));
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Homepage(
+                    user: user,
+                  )));
     }
   }
 
@@ -78,11 +82,12 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                           decoration: BoxDecoration(
-                              color: Color(0xff7c9982),
-                              borderRadius: BorderRadius.circular(20),
-                              ),
+                            color: Color(0xff7c9982),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                           child: ListTile(
                             title: TextFormField(
+                                cursorColor: Colors.black,
                                 controller: _emailController,
                                 decoration: const InputDecoration(
                                     border: InputBorder.none,
@@ -114,18 +119,25 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                           decoration: BoxDecoration(
-                              color: Color(0xff7c9982),
-                              borderRadius: BorderRadius.circular(20),
-                              ),
+                            color: Color(0xff7c9982),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                           child: ListTile(
                             title: TextFormField(
+                                cursorColor: Colors.black,
                                 obscureText: statusRedEye,
                                 controller: _passwordController,
                                 decoration: InputDecoration(
                                   suffixIcon: IconButton(
                                     icon: statusRedEye
-                                        ? Icon(Icons.remove_red_eye_sharp)
-                                        : Icon(Icons.remove_red_eye_outlined),
+                                        ? Icon(
+                                            Icons.remove_red_eye_sharp,
+                                            color: Colors.black,
+                                          )
+                                        : Icon(
+                                            Icons.remove_red_eye_outlined,
+                                            color: Colors.white,
+                                          ),
                                     onPressed: () {
                                       setState(() {
                                         statusRedEye = !statusRedEye;
